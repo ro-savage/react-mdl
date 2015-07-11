@@ -178,7 +178,7 @@ const buildClassName = R.compose(
 const component = (
     displayName,
     render,
-    mdlUpgradeable = true
+    mdlUpgradeable
 ) => React.createClass({
     displayName,
     componentDidMount() {

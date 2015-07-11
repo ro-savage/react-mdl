@@ -39,4 +39,4 @@ export default component("Button", props => {
         className,
         disabled
     }), props.children);
-});
+}, true);

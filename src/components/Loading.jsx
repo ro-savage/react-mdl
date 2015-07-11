@@ -35,7 +35,7 @@ const ProgressBar = component("ProgressBar", props => {
     return React.createElement("div", mergeImplicitProps(props, {
         className
     }), children);
-}, false);
+});
 
 
 const IndeterminateProgressBar = component("IndeterminateProgressBar",
@@ -49,8 +49,8 @@ const IndeterminateProgressBar = component("IndeterminateProgressBar",
         return React.createElement("div", mergeImplicitProps(props, {
             className
         }));
-    }
-);
+    },
+true);
 
 
 const Spinner = component("Spinner", props => {
@@ -69,7 +69,7 @@ const Spinner = component("Spinner", props => {
         className,
         "data-prevent-upgrade": true
     }));
-});
+}, true);
 
 export {
     ProgressBar,
