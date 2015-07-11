@@ -2,6 +2,7 @@
 
 import Badge from "./Badge";
 import Button from "./Button";
+import Icon from "./Icon";
 import {
     Card,
     CardTitle,
@@ -10,8 +11,12 @@ import {
     CardSupporting,
     CardMenu
 } from "./Card";
-import Icon from "./Icon";
-import Layout from "./Layout";
+import {
+    Layout,
+    LayoutHeader,
+    LayoutHeaderRow,
+    LayoutHeaderSpacer
+} from "./Layout";
 import {
     ProgressBar,
     IndeterminateProgressBar,
@@ -37,9 +42,12 @@ export {
     CardSupporting,
     CardMenu,
 
-    Layout,
-
     Icon,
+
+    Layout,
+    LayoutHeader,
+    LayoutHeaderRow,
+    LayoutHeaderSpacer,
 
     ProgressBar,
     IndeterminateProgressBar,

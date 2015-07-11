@@ -14,6 +14,9 @@ import {
     CardMenu,
 
     Layout,
+    LayoutHeader,
+    LayoutHeaderRow,
+    LayoutHeaderSpacer,
 
     Icon,
 
@@ -228,9 +231,36 @@ class Demo extends React.Component {
 
 
             <h2>Layout</h2>
+            <div style={{ clear: "both", position: "relative", height: "20em" }}>
 
-            <Layout />
-            <br /><br />
+                <Layout style={{ background: "CadetBlue" }}>
+                    <LayoutHeader type="transparent" style={{ color: "white" }}>
+                        <LayoutHeaderRow>
+                            <span class="mdl-layout-title">Title</span>
+                            <LayoutHeaderSpacer />
+                            <nav class="mdl-navigation">
+                                <a class="mdl-navigation__link" href="">Link</a>
+                                <a class="mdl-navigation__link" href="">Link</a>
+                                <a class="mdl-navigation__link" href="">Link</a>
+                                <a class="mdl-navigation__link" href="">Link</a>
+                            </nav>
+                        </LayoutHeaderRow>
+                    </LayoutHeader>
+                    <div class="mdl-layout__drawer">
+                        <span class="mdl-layout-title">Title</span>
+                        <nav class="mdl-navigation">
+                            <a class="mdl-navigation__link" href="">Link</a>
+                            <a class="mdl-navigation__link" href="">Link</a>
+                            <a class="mdl-navigation__link" href="">Link</a>
+                            <a class="mdl-navigation__link" href="">Link</a>
+                        </nav>
+                    </div>
+                    <main class="mdl-layout__content">
+                    </main>
+                </Layout>
+                <br /><br />
+
+            </div>
 
 
             <h2>Loading</h2>

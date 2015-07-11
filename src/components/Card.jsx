@@ -52,36 +52,31 @@ const buildCardClassName = (props, type) => {
     const { border } = props;
     const hasBorder = R.contains(border, ["true", true]);
     const borderString = hasBorder ? "mdl-card--border " : "";
-
     return borderString + "mdl-card__" + type;
 };
 
 
 const CardActions = component(props => {
-    return React.createElement("div", mergeImplicitProps(props, {
-        className: buildCardClassName(props, "actions")
-    }), props.children);
+    const className = buildCardClassName(props, "actions");
+    return <div {...props} border="" className={className} />;
 });
 
 
 const CardMedia = component(props => {
-    return React.createElement("div", mergeImplicitProps(props, {
-        className: buildCardClassName(props, "media")
-    }), props.children);
+    const className = buildCardClassName(props, "media");
+    return <div {...props} border="" className={className} />;
 });
 
 
 const CardSupporting = component(props => {
-    return React.createElement("div", mergeImplicitProps(props, {
-        className: buildCardClassName(props, "supporting-text")
-    }), props.children);
+    const className = buildCardClassName(props, "supporting-text");
+    return <div {...props} border="" className={className} />;
 });
 
 
 const CardMenu = component(props => {
-    return React.createElement("div", mergeImplicitProps(props, {
-        className: buildCardClassName(props, "menu")
-    }), props.children);
+    const className = buildCardClassName(props, "menu");
+    return <div {...props} border="" className={className} />;
 });
 
 
