@@ -10,7 +10,7 @@ import {
 
 
 // "icon" property unsupported, in lieu of <Badge><Icon></Badge> composition
-export default component("Badge", props => {
+export default component(props => {
     const {
         badge,
         background

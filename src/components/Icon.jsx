@@ -8,7 +8,7 @@ import {
 } from "../lib";
 
 
-export default component("Icon", props => {
+export default component(props => {
     const {
         size,
         color, // (normal), light, dark

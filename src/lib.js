@@ -176,11 +176,9 @@ const buildClassName = R.compose(
 
 // Create React component
 const component = (
-    displayName,
     render,
     mdlUpgradeable
 ) => React.createClass({
-    displayName,
     componentDidMount() {
         // Check that component is upgradeable,
         // and that MDL global "componentHandler" exists

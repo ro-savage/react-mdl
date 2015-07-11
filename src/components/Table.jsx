@@ -8,6 +8,6 @@ import {
 } from "../lib";
 
 
-export default component("Table", props => {
+export default component(props => {
     return <div>table</div>;
 });

@@ -8,7 +8,7 @@ import {
 } from "../lib";
 
 
-const ProgressBar = component("ProgressBar", props => {
+const ProgressBar = component(props => {
     const {
         progress,
         buffer
@@ -38,22 +38,20 @@ const ProgressBar = component("ProgressBar", props => {
 });
 
 
-const IndeterminateProgressBar = component("IndeterminateProgressBar",
-    props => {
-        const className = buildClassName({
-            "mdl-progress": true,
-            "mdl-js-progress": true,
-            "mdl-progress__indeterminate": true
-        });
+const IndeterminateProgressBar = component(props => {
+    const className = buildClassName({
+        "mdl-progress": true,
+        "mdl-js-progress": true,
+        "mdl-progress__indeterminate": true
+    });
 
-        return React.createElement("div", mergeImplicitProps(props, {
-            className
-        }));
-    },
-true);
+    return React.createElement("div", mergeImplicitProps(props, {
+        className
+    }));
+}, true);
 
 
-const Spinner = component("Spinner", props => {
+const Spinner = component(props => {
     const {
         color
     } = props;
@@ -70,6 +68,7 @@ const Spinner = component("Spinner", props => {
         "data-prevent-upgrade": true
     }));
 }, true);
+
 
 export {
     ProgressBar,

@@ -9,7 +9,7 @@ import {
 } from "../lib";
 
 
-export default component("Button", props => {
+export default component(props => {
     const {
         type, // (flat), raised, icon, fab, mini-fab
         color, // (none), primary, accent

@@ -9,7 +9,7 @@ import {
 } from "../lib";
 
 
-const Card = component("Card", props => {
+const Card = component(props => {
     const {
         shadow
     } = props;
@@ -25,7 +25,7 @@ const Card = component("Card", props => {
 });
 
 
-const CardTitle = component("CardTitle", props => {
+const CardTitle = component(props => {
     const {
         border
     } = props;
@@ -57,28 +57,28 @@ const buildCardClassName = (props, type) => {
 };
 
 
-const CardActions = component("CardActions", props => {
+const CardActions = component(props => {
     return React.createElement("div", mergeImplicitProps(props, {
         className: buildCardClassName(props, "actions")
     }), props.children);
 });
 
 
-const CardMedia = component("CardMedia", props => {
+const CardMedia = component(props => {
     return React.createElement("div", mergeImplicitProps(props, {
         className: buildCardClassName(props, "media")
     }), props.children);
 });
 
 
-const CardSupporting = component("CardSupporting", props => {
+const CardSupporting = component(props => {
     return React.createElement("div", mergeImplicitProps(props, {
         className: buildCardClassName(props, "supporting-text")
     }), props.children);
 });
 
 
-const CardMenu = component("CardMenu", props => {
+const CardMenu = component(props => {
     return React.createElement("div", mergeImplicitProps(props, {
         className: buildCardClassName(props, "menu")
     }), props.children);

@@ -8,6 +8,6 @@ import {
 } from "../lib";
 
 
-export default component("TextField", props => {
+export default component(props => {
     return <div>textfield</div>;
 });
