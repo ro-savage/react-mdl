@@ -13,10 +13,7 @@ import {
     CardSupporting,
     CardMenu,
 
-    Layout,
-    LayoutHeader,
-    LayoutHeaderRow,
-    LayoutHeaderSpacer,
+    Appbar,
 
     Icon,
 
@@ -39,6 +36,20 @@ import {
 
 
 class Demo extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            sliderValue: 0
+        };
+
+        this.handleChange = key => event => {
+            const value = event.target.value;
+            this.setState({ [key]: value });
+        };
+    }
+
     render () {
         return <div>
 
@@ -231,36 +242,12 @@ class Demo extends React.Component {
 
 
             <h2>Layout</h2>
-            <div style={{ clear: "both", position: "relative", height: "20em" }}>
 
-                <Layout style={{ background: "CadetBlue" }}>
-                    <LayoutHeader type="transparent" style={{ color: "white" }}>
-                        <LayoutHeaderRow>
-                            <span class="mdl-layout-title">Title</span>
-                            <LayoutHeaderSpacer />
-                            <nav class="mdl-navigation">
-                                <a class="mdl-navigation__link" href="">Link</a>
-                                <a class="mdl-navigation__link" href="">Link</a>
-                                <a class="mdl-navigation__link" href="">Link</a>
-                                <a class="mdl-navigation__link" href="">Link</a>
-                            </nav>
-                        </LayoutHeaderRow>
-                    </LayoutHeader>
-                    <div class="mdl-layout__drawer">
-                        <span class="mdl-layout-title">Title</span>
-                        <nav class="mdl-navigation">
-                            <a class="mdl-navigation__link" href="">Link</a>
-                            <a class="mdl-navigation__link" href="">Link</a>
-                            <a class="mdl-navigation__link" href="">Link</a>
-                            <a class="mdl-navigation__link" href="">Link</a>
-                        </nav>
-                    </div>
-                    <main class="mdl-layout__content">
-                    </main>
-                </Layout>
-                <br /><br />
-
-            </div>
+            <Appbar title="title" left={
+                <Icon type="menu" />
+            } right={
+                <Icon type="more" />
+            } />
 
 
             <h2>Loading</h2>
@@ -289,19 +276,24 @@ class Demo extends React.Component {
 
             <h2>Sliders</h2>
 
-            <Slider />
-            <br /><br />
-
-
-            <h2>Tables</h2>
-
-            <Table />
+            <Slider
+                min="0"
+                max="50"
+                value={this.state.sliderValue}
+                onChange={this.handleChange("sliderValue")}
+                tabIndex="0" />
             <br /><br />
 
 
             <h2>Toggles</h2>
 
             <Toggle />
+            <br /><br />
+
+
+            <h2>Tables</h2>
+
+            <Table />
             <br /><br />
 
 
@@ -318,6 +310,7 @@ class Demo extends React.Component {
 
         </div>;
     }
+
 }
 
 

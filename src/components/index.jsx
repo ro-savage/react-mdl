@@ -12,10 +12,7 @@ import {
     CardMenu
 } from "./Card";
 import {
-    Layout,
-    LayoutHeader,
-    LayoutHeaderRow,
-    LayoutHeaderSpacer
+    Appbar
 } from "./Layout";
 import {
     ProgressBar,
@@ -44,10 +41,7 @@ export {
 
     Icon,
 
-    Layout,
-    LayoutHeader,
-    LayoutHeaderRow,
-    LayoutHeaderSpacer,
+    Appbar,
 
     ProgressBar,
     IndeterminateProgressBar,

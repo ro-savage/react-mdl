@@ -11,10 +11,10 @@ Status
 * Badges
 * Buttons
 * Cards
-* **Layout** - todo
+* Layout - WIP
 * Loading
 * **Menus** - todo
-* **Sliders** - todo
+* Sliders
 * **Tables** - todo
 * **Toggles** - todo
 * **Text Fields** - todo
