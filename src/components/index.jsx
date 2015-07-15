@@ -22,7 +22,10 @@ import {
 import Menu from "./Menu";
 import Slider from "./Slider";
 import Table from "./Table";
-import TextField from "./TextField";
+import {
+    TextField,
+    TextArea
+} from "./TextField";
 import Toggle from "./Toggle";
 import Tooltip from "./Tooltip";
 
@@ -54,6 +57,7 @@ export {
     Table,
 
     TextField,
+    TextArea,
 
     Toggle,
 
