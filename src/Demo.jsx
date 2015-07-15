@@ -28,12 +28,12 @@ import {
     Table,
 
     TextField,
+    TextArea,
 
     Toggle,
 
     Tooltip
 } from "./components";
-
 
 class Demo extends React.Component {
 
@@ -41,16 +41,27 @@ class Demo extends React.Component {
         super(props);
 
         this.state = {
-            sliderValue: 0
+            sliderValue: 0,
+            checkBoxValue: 'off'
         };
 
         this.handleChange = key => event => {
-            const value = event.target.value;
-            this.setState({ [key]: value });
+            const { checked, value } = event.target;
+            const finalValue = (checked !== undefined) ? checked : value; // handle checkbox
+
+            this.setState({ [key]: finalValue });
         };
     }
 
-    render () {
+    render() {
+
+        const validationPatterns = {
+            numbers: "-?[0-9]*(\.[0-9]+)?",
+            email: "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
+            textOnly: "",
+            anything: "*"
+        };
+
         return <div>
 
             <h1>react-mdl</h1>
@@ -284,10 +295,13 @@ class Demo extends React.Component {
                 tabIndex="0" />
             <br /><br />
 
-
             <h2>Toggles</h2>
 
-            <Toggle />
+            <Toggle
+                checked={this.state.checkBoxValue}
+                onChange={this.handleChange("checkBoxValue")}
+                defaultChecked={true}
+                />
             <br /><br />
 
 
@@ -299,7 +313,21 @@ class Demo extends React.Component {
 
             <h2>Text Fields</h2>
 
-            <TextField />
+            <TextField
+                placeholder="Enter your email"
+                pattern={validationPatterns.email}
+                type="floating" >
+                This is my error message
+            </TextField>
+            <br /><br />
+
+            <h2>Text Areas</h2>
+            <TextArea
+                placeholder="Enter your comment"
+                pattern={validationPatterns.anything}
+                type="floating" >
+                This is also an error message
+            </TextArea>
             <br /><br />
 
 
