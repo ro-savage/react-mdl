@@ -28,7 +28,8 @@ import {
 } from "./TextField";
 import {
     CheckBox,
-    Switch
+    Switch,
+    IconToggle
 } from "./Toggle";
 import Tooltip from "./Tooltip";
 
@@ -64,6 +65,7 @@ export {
 
     CheckBox,
     Switch,
+    IconToggle,
 
     Tooltip
 };

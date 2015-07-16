@@ -11,7 +11,8 @@ const TextField = component((props, uniqueId) => {
     const {
         type, // (floating), regular
         pattern, // (text), number, email, custom
-        placeholder // (required) string
+        placeholder, // string
+        errorMsg // string
         } = props;
 
     const className = buildClassName({
@@ -23,17 +24,17 @@ const TextField = component((props, uniqueId) => {
         "": type === "regular" // regular has no special class
     });
 
-    // If there are multiple children just ignore it.
-    const errormsg = props.children;
+    const labelText = props.children;
 
     return <div className={className}>
             <input className="mdl-textfield__input"
                    pattern={pattern ? pattern : "*"}
                    type="text"
                    id={"mdl-textfield-" + uniqueId}
+                   placeholder={placeholder}
                 />
-            <label className="mdl-textfield__label" htmlFor={"mdl-textfield-" + uniqueId}>{placeholder}</label>
-            { errormsg && <span className="mdl-textfield__error" >{errormsg}</span> }
+            <label className="mdl-textfield__label" htmlFor={"mdl-textfield-" + uniqueId}>{labelText}</label>
+            { errorMsg && <span className="mdl-textfield__error" >{errorMsg}</span> }
         </div>;
 });
 
@@ -41,8 +42,9 @@ const TextArea = component((props, uniqueId) => {
     const {
         type, // (floating), regular
         pattern, // (text), number, email, custom
-        placeholder, // (required) string
-        rows // (3), int
+        placeholder, // string
+        rows, // (3), int
+        errorMsg // string
         } = props;
 
     const className = buildClassName({
@@ -54,18 +56,18 @@ const TextArea = component((props, uniqueId) => {
         "": type === "regular" // regular has no special class
     });
 
-    // If there are multiple children just ignore it.
-    const errormsg = props.children;
+    const labelText = props.children;
 
     return <div className={className}>
             <textarea className="mdl-textfield__input"
                       type="text"
                       rows={rows ? rows : 3}
                       pattern={pattern ? pattern : "*"}
-                      id={"mdl-textfield-" + uniqueId} >
+                      id={"mdl-textfield-" + uniqueId}
+                      placholder={placeholder} >
             </textarea>
-            <label className="mdl-textfield__label" htmlFor={"mdl-textfield-" + uniqueId}>{placeholder}</label>
-            { errormsg && <span className="mdl-textfield__error">{errormsg}</span> }
+            <label className="mdl-textfield__label" htmlFor={"mdl-textfield-" + uniqueId}>{labelText}</label>
+            { errorMsg && <span className="mdl-textfield__error">{errorMsg}</span> }
         </div>;
 });
 

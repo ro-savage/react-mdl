@@ -32,6 +32,7 @@ import {
 
     CheckBox,
     Switch,
+    IconToggle,
 
     Tooltip
 } from "./components";
@@ -46,7 +47,9 @@ class Demo extends React.Component {
             checkBoxValue: "off",
             checkBoxValue2: "off",
             switchValue: "off",
-            switchValue2: "off"
+            switchValue2: "off",
+            iconToggleValue: "off",
+            iconToggleValue2: "off"
         };
 
         this.handleChange = key => event => {
@@ -328,7 +331,20 @@ class Demo extends React.Component {
                 label="My switched on switch"
                 />
             <br /><br />
-
+            <IconToggle
+                checked={this.state.iconToggleValue}
+                onChange={this.handleChange("iconToggleValue")}
+                defaultChecked={false}
+                label="Icon on"
+                />
+            <IconToggle
+                checked={this.state.iconToggleValue2}
+                onChange={this.handleChange("iconToggleValue2")}
+                defaultChecked={true}
+                label="Icon off"
+                >
+                My label
+            </IconToggle>
 
             <h2>Tables</h2>
 
@@ -339,19 +355,20 @@ class Demo extends React.Component {
             <h2>Text Fields</h2>
 
             <TextField
-                placeholder="Enter your email"
                 pattern={validationPatterns.email}
-                type="floating" >
-                This is my error message
+                type="floating"
+                errorMsg="This is my error message">
+                Enter your email address
             </TextField>
             <br /><br />
 
             <h2>Text Areas</h2>
             <TextArea
-                placeholder="Enter your comment"
                 pattern={validationPatterns.anything}
-                type="floating" >
-                This is also an error message
+                type="floating"
+                errorMsg="This is also an error message"
+                >
+                Enter your comment
             </TextArea>
             <br /><br />
 
