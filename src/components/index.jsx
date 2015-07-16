@@ -26,7 +26,10 @@ import {
     TextField,
     TextArea
 } from "./TextField";
-import Toggle from "./Toggle";
+import {
+    CheckBox,
+    Switch
+} from "./Toggle";
 import Tooltip from "./Tooltip";
 
 
@@ -59,7 +62,8 @@ export {
     TextField,
     TextArea,
 
-    Toggle,
+    CheckBox,
+    Switch,
 
     Tooltip
 };

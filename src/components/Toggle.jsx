@@ -9,12 +9,11 @@ import {
 } from "../lib";
 
 
-export default component(props => {
+const CheckBox = component((props, uniqueId) => {
 
     const {
-        type, // (flat), raised, icon, fab, mini-fab
-        color, // (none), primary, accent
         disabled,
+        label,
         checked,
         defaultChecked,
         onChange
@@ -24,23 +23,43 @@ export default component(props => {
     const isChecked = checked === "on" || checked === "true" || checked === true ? "checked" : "";
 
     const className = buildClassName({
-        "mdl-button": true,
-        "mdl-js-button": true,
-        "mdl-js-ripple-effect": true,
-
-        // Default: uncolored
-        "mdl-button--colored": color === "primary",
-        "mdl-button--accent": color === "accent",
-
-        // Default: flat
-        "mdl-button--raised": type === "raised",
-        "mdl-button--icon": type === "icon",
-        "mdl-button--fab": type === "fab" || type === "mini-fab",
-        "mdl-button--mini-fab": type === "mini-fab"
+        "mdl-checkbox": true,
+        "mdl-js-checkbox": true,
+        "mdl-js-ripple-effect": true
     });
 
-    return <label className="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
-            <input type="checkbox" id="checkbox-1" className="mdl-checkbox__input" defaultChecked={defaultChecked} onChange={onChange} />
-            <span className="mdl-checkbox__label">Checkbox</span>
+    return <label className={className} htmlFor={"mdl-checkbox-" + uniqueId}>
+            <input type="checkbox" id={"mdl-checkbox-" + uniqueId} className="mdl-checkbox__input" defaultChecked={defaultChecked} onChange={onChange} />
+            <span className="mdl-checkbox__label">{label}</span>
         </label>;
 });
+
+const Switch = component((props, uniqueId) => {
+
+    const {
+        disabled,
+        label,
+        checked,
+        defaultChecked,
+        onChange
+        } = props;
+
+    // if checkbox is set to 'on', 'true' or true by the onChange event then make the checkbox checked
+    const isChecked = checked === "on" || checked === "true" || checked === true ? "checked" : "";
+
+    const className = buildClassName({
+        "mdl-switch": true,
+        "mdl-js-switch": true,
+        "mdl-js-ripple-effect": true
+    });
+
+    return <label className={className} htmlFor={"mdl-switch-" + uniqueId}>
+        <input type="checkbox" id={"mdl-switch-" + uniqueId} className="mdl-switch__input" defaultChecked={defaultChecked} onChange={onChange} />
+        <span className="mdl-switch__label">{label}</span>
+    </label>;
+});
+
+export {
+    CheckBox,
+    Switch
+};

@@ -30,7 +30,8 @@ import {
     TextField,
     TextArea,
 
-    Toggle,
+    CheckBox,
+    Switch,
 
     Tooltip
 } from "./components";
@@ -42,7 +43,10 @@ class Demo extends React.Component {
 
         this.state = {
             sliderValue: 0,
-            checkBoxValue: 'off'
+            checkBoxValue: "off",
+            checkBoxValue2: "off",
+            switchValue: "off",
+            switchValue2: "off"
         };
 
         this.handleChange = key => event => {
@@ -297,10 +301,31 @@ class Demo extends React.Component {
 
             <h2>Toggles</h2>
 
-            <Toggle
+            <CheckBox
                 checked={this.state.checkBoxValue}
                 onChange={this.handleChange("checkBoxValue")}
                 defaultChecked={true}
+                label="My ticked checkbox"
+                />
+            <br /><br />
+            <CheckBox
+                checked={this.state.checkBoxValue2}
+                onChange={this.handleChange("checkBoxValue2")}
+                defaultChecked={false}
+                label="My checkbox"
+                />
+            <br /><br />
+            <Switch
+                checked={this.state.switchValue}
+                onChange={this.handleChange("switchValue")}
+                defaultChecked={false}
+                label="My switch"
+                />
+            <Switch
+                checked={this.state.switchValue2}
+                onChange={this.handleChange("switchValue2")}
+                defaultChecked={true}
+                label="My switched on switch"
                 />
             <br /><br />
 
