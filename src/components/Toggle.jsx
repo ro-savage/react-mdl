@@ -14,13 +14,12 @@ const CheckBox = component((props, uniqueId) => {
     const {
         disabled,
         label,
-        checked,
         defaultChecked,
-        onChange
+        onChange,
+        id: idProp
         } = props;
 
-    // if checkbox is set to 'on', 'true' or true by the onChange event then make the checkbox checked
-    const isChecked = checked === "on" || checked === "true" || checked === true ? "checked" : "";
+    const id = idProp || uniqueId;
 
     const className = buildClassName({
         "mdl-checkbox": true,
@@ -28,8 +27,8 @@ const CheckBox = component((props, uniqueId) => {
         "mdl-js-ripple-effect": true
     });
 
-    return <label className={className} htmlFor={"mdl-checkbox-" + uniqueId}>
-            <input type="checkbox" id={"mdl-checkbox-" + uniqueId} className="mdl-checkbox__input" defaultChecked={defaultChecked} onChange={onChange} />
+    return <label className={className} htmlFor={id}>
+            <input type="checkbox" id={id} className="mdl-checkbox__input" defaultChecked={defaultChecked} onChange={onChange} />
             <span className="mdl-checkbox__label">{label}</span>
         </label>;
 });
@@ -39,13 +38,12 @@ const Switch = component((props, uniqueId) => {
     const {
         disabled,
         label,
-        checked,
         defaultChecked,
-        onChange
+        onChange,
+        id: idProp
         } = props;
 
-    // if checkbox is set to 'on', 'true' or true by the onChange event then make the checkbox checked
-    const isChecked = checked === "on" || checked === "true" || checked === true ? "checked" : "";
+    const id = idProp || uniqueId;
 
     const className = buildClassName({
         "mdl-switch": true,
@@ -53,13 +51,39 @@ const Switch = component((props, uniqueId) => {
         "mdl-js-ripple-effect": true
     });
 
-    return <label className={className} htmlFor={"mdl-switch-" + uniqueId}>
-        <input type="checkbox" id={"mdl-switch-" + uniqueId} className="mdl-switch__input" defaultChecked={defaultChecked} onChange={onChange} />
+    return <label className={className} htmlFor={id}>
+        <input type="checkbox" id={id} className="mdl-switch__input" defaultChecked={defaultChecked} onChange={onChange} />
         <span className="mdl-switch__label">{label}</span>
+    </label>;
+});
+
+const IconToggle = component((props, uniqueId) => {
+
+    const {
+        disabled,
+        label,
+        defaultChecked,
+        onChange,
+        id: idProp
+        } = props;
+
+    const id = idProp || uniqueId;
+
+
+    const className = buildClassName({
+        "mdl-icon-toggle": true,
+        "mdl-js-icon-toggle": true,
+        "mdl-js-ripple-effect": true
+    });
+
+    return <label className={className} htmlFor={id}>
+        <input type="checkbox" id={id} className="mdl-icon-toggle__input" defaultChecked={defaultChecked} onChange={onChange} />
+        <span className="mdl-icon-toggle__label material-icons">format_bold</span>
     </label>;
 });
 
 export {
     CheckBox,
-    Switch
+    Switch,
+    IconToggle
 };
