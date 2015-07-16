@@ -16,8 +16,8 @@ Status
 * **Menus** - todo
 * Sliders
 * **Tables** - todo
-* **Toggles** - todo
-* **Text Fields** - todo
+* Toggles
+* Text Fields
 * **Tooltips** - todo
 
 
