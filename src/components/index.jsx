@@ -29,7 +29,8 @@ import {
 import {
     CheckBox,
     Switch,
-    IconToggle
+    IconToggle,
+    RadioButton
 } from "./Toggle";
 import Tooltip from "./Tooltip";
 
@@ -66,6 +67,7 @@ export {
     CheckBox,
     Switch,
     IconToggle,
+    RadioButton,
 
     Tooltip
 };

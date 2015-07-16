@@ -33,6 +33,7 @@ import {
     CheckBox,
     Switch,
     IconToggle,
+    RadioButton,
 
     Tooltip
 } from "./components";
@@ -49,13 +50,15 @@ class Demo extends React.Component {
             switchValue: "off",
             switchValue2: "off",
             iconToggleValue: "off",
-            iconToggleValue2: "off"
+            iconToggleValue2: "off",
+            radioValue: ""
         };
 
         this.handleChange = key => event => {
             const { checked, value } = event.target;
-            const finalValue = (checked !== undefined) ? checked : value; // handle checkbox
-
+            console.log(checked, value);
+            const finalValue = (value !== "on") ? value : checked; // handle checkbox
+            console.log(finalValue);
             this.setState({ [key]: finalValue });
         };
     }
@@ -308,43 +311,69 @@ class Demo extends React.Component {
                 checked={this.state.checkBoxValue}
                 onChange={this.handleChange("checkBoxValue")}
                 defaultChecked={true}
-                label="My ticked checkbox"
-                />
+                >
+                My Ticked Checkbox
+            </CheckBox>
             <br /><br />
             <CheckBox
                 checked={this.state.checkBoxValue2}
                 onChange={this.handleChange("checkBoxValue2")}
                 defaultChecked={false}
-                label="My checkbox"
-                />
+                >
+                My Checkbox
+                </CheckBox>
             <br /><br />
             <Switch
                 checked={this.state.switchValue}
                 onChange={this.handleChange("switchValue")}
                 defaultChecked={false}
-                label="My switch"
-                />
+                >
+                My Switch
+            </Switch>
             <Switch
                 checked={this.state.switchValue2}
                 onChange={this.handleChange("switchValue2")}
                 defaultChecked={true}
-                label="My switched on switch"
-                />
+                >
+                My switched on switch
+                </Switch>
             <br /><br />
             <IconToggle
                 checked={this.state.iconToggleValue}
                 onChange={this.handleChange("iconToggleValue")}
                 defaultChecked={false}
-                label="Icon on"
-                />
+                >
+                format_bold
+            </IconToggle>
             <IconToggle
                 checked={this.state.iconToggleValue2}
                 onChange={this.handleChange("iconToggleValue2")}
                 defaultChecked={true}
-                label="Icon off"
                 >
-                My label
+                format_bold
             </IconToggle>
+            <br /><br /><br />
+                <RadioButton
+                    checked={this.state.radioValue}
+                    onChange={this.handleChange("radioValue1")}
+                    value="Awesome"
+                    >
+                    Radio 1
+                </RadioButton>
+                <RadioButton
+                    checked={this.state.radioValue}
+                    onChange={this.handleChange("radioValue1")}
+                    value="Cool"
+                    >
+                    Radio 2
+                </RadioButton>
+                <RadioButton
+                    checked={this.state.radioValue}
+                    onChange={this.handleChange("radioValue1")}
+                    value="Not Cool"
+                    >
+                    Radio 3
+                </RadioButton>
 
             <h2>Tables</h2>
 

@@ -13,13 +13,14 @@ const CheckBox = component((props, uniqueId) => {
 
     const {
         disabled,
-        label,
         defaultChecked,
         onChange,
         id: idProp
         } = props;
 
     const id = idProp || uniqueId;
+    const labelText = props.children;
+
 
     const className = buildClassName({
         "mdl-checkbox": true,
@@ -29,7 +30,7 @@ const CheckBox = component((props, uniqueId) => {
 
     return <label className={className} htmlFor={id}>
             <input type="checkbox" id={id} className="mdl-checkbox__input" defaultChecked={defaultChecked} onChange={onChange} />
-            <span className="mdl-checkbox__label">{label}</span>
+            <span className="mdl-checkbox__label">{labelText}</span>
         </label>;
 });
 
@@ -37,13 +38,14 @@ const Switch = component((props, uniqueId) => {
 
     const {
         disabled,
-        label,
         defaultChecked,
         onChange,
         id: idProp
         } = props;
 
     const id = idProp || uniqueId;
+    const labelText = props.children;
+
 
     const className = buildClassName({
         "mdl-switch": true,
@@ -53,7 +55,7 @@ const Switch = component((props, uniqueId) => {
 
     return <label className={className} htmlFor={id}>
         <input type="checkbox" id={id} className="mdl-switch__input" defaultChecked={defaultChecked} onChange={onChange} />
-        <span className="mdl-switch__label">{label}</span>
+        <span className="mdl-switch__label">{labelText}</span>
     </label>;
 });
 
@@ -61,14 +63,14 @@ const IconToggle = component((props, uniqueId) => {
 
     const {
         disabled,
-        label,
         defaultChecked,
         onChange,
+        icon,
         id: idProp
         } = props;
 
     const id = idProp || uniqueId;
-
+    const labelText = props.children;
 
     const className = buildClassName({
         "mdl-icon-toggle": true,
@@ -78,12 +80,38 @@ const IconToggle = component((props, uniqueId) => {
 
     return <label className={className} htmlFor={id}>
         <input type="checkbox" id={id} className="mdl-icon-toggle__input" defaultChecked={defaultChecked} onChange={onChange} />
-        <span className="mdl-icon-toggle__label material-icons">format_bold</span>
+        <span className="mdl-icon-toggle__label material-icons">{icon}</span>
     </label>;
+});
+
+const RadioButton = component((props, uniqueId) => {
+
+    const {
+        disabled,
+        onChange,
+        value,
+        group,
+        id: idProp
+        } = props;
+
+    const id = idProp || uniqueId;
+    const labelText = props.children;
+
+    const className = buildClassName({
+        "mdl-radio ": true,
+        "mdl-js-radio": true,
+        "mdl-js-ripple-effect": true
+    });
+
+    return <label className={className} htmlFor={id} >
+            <input type="radio" id={id} className="mdl-radio__button" name={group} value={value} onChange={onChange} />
+            <span className="mdl-radio__label">{labelText}</span>
+        </label>;
 });
 
 export {
     CheckBox,
     Switch,
-    IconToggle
+    IconToggle,
+    RadioButton
 };
