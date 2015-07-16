@@ -2,6 +2,7 @@
 
 import React from "react";
 import R from "ramda";
+import uuid from "uuid";
 
 // Attributes that should be passed from <Parent /> to <child />
 const implicitAttributes = [
@@ -179,6 +180,11 @@ const component = (
     render,
     mdlUpgradeable
 ) => React.createClass({
+    getInitialState() {
+        return {
+            uniqueId: uuid.v4()
+        };
+    },
     componentDidMount() {
         // Check that component is upgradeable,
         // and that MDL global "componentHandler" exists
