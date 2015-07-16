@@ -196,7 +196,7 @@ const component = (
         componentHandler.upgradeElement(domNode); // eslint-disable-line no-undef
     },
     render() {
-        return render.call(this, this.props);
+        return render.call(this, this.props, this.state.uniqueId);
     }
 });
 
